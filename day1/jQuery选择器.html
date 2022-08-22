@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p> 
+    </div>
+    <script>
+        // jQuery入口函数,表示当前页面DOM模型已经准备好
+        $(function () {
+
+            console.log($, jQuery); // ƒ (e,t){return new S.fn.init(e,t)} 
+            // 将原生document节点传入jq函数,返回对应jq实例对象
+            // $(document)
+            // jq还支持querySelect语法将css选择器传入jq方法中,jq自动访问到页面中对应的元素
+            // 并将元素转化为jq实例对象
+            // 注意: 以后开发所有通过jq获取的DOM元素变量名请使用$开头,与原生DOM做区分
+            var $app = $('#app')
+            var app = document.querySelector('#app')
+
+            var $app1 = $(app) // 原生DOM 可以通过 $(DOM) 方法将其转化为 jQuery对象
+            console.log($app1);
+            console.log($app == app); // false
+            console.log($app[0] == app); // true, $app[0] 通过下标可以将jq对象转化为原生对象
+
+            // jQ方法可以接受第二个参数作为当前jQuery选择器的上下文环境,获取子元素的父元素
+            // 参数二可以是 原生DOM 也可以去是jQuery DOM对象 也可以是选择器字符串
+            // var $ps = $('p',app)
+            // var $ps = $('p',$app)
+            var $ps = $('p','#app')
+            // 
+            console.log($ps);
+            console.log($ps[0]); // 可以拿到第0个原生p元素
+            console.log($ps[1]); // 可以拿到第1个原生p元素
+            console.log($ps[2]); // 可以拿到第2个原生p元素
+
+
+            // 总结 
+            // 1. $(el, context) 方法可以获取页面元素并返回其jq对象
+            // 2. jQuery对象可以同下标索引的方法,将其内部对应的元素转化为原生DOM对象
+            // 3. 原生DOM对象,可以通过 $(原生DOM)转化为jQuery对象
+            // 4. 所有jQ对象变量名使用$符号开头
+
+            // 注意 jQ选择器支持所有包括css3的选择,jq还提供了一些自己的选择器(不建议使用,性能)
+            /*
+            :input ：匹配所有 input, textarea, select 和 button 元素
+            :text ：匹配所有的单行文本框
+            :password：匹配所有密码框 
+            :radio：匹配所有单选按钮
+            :checkbox：匹配所有复选按钮
+            :submit：匹配所有提交按钮
+            :reset：匹配所有重置按钮
+            :button：匹配所有按钮
+            :hidden： 匹配所有不可见元素
+            :visible：匹配所有可见元素
+
+            它们的CSSdisplay值为none、它们是的构成元素type=“hidden”、祖先元素被隐藏，因此该元素未显示在页面上。
+            带有visibility: hidden或的元素opacity: 0被认为是可见的，因为它们仍然占用布局中的空间。
+            */
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.6.0.min.js"></script>
+    <style>
+        .menu-list {
+            background-color: red;
+            font-size: 17px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li class="menu-list">1</li>
+        <li class="menu-list" style="background-color: pink;">2</li>
+        <li class="menu-list">3</li>
+        <li class="menu-list">4</li>
+        <li class="menu-list">5</li>
+        <li class="menu-list">6</li>
+        <li class="menu-list">7</li>
+        <li class="menu-list">8</li>
+        <li class="menu-list">9</li>
+        <li class="menu-list">10</li>
+    </ul>
+    <script>
+        $(function () {
+            var $menu = $('.menu')
+            var $menuList = $('.menu-list', $menu)
+
+            // 属性 length jQuery对象匹配到的DOM元素个数
+            console.log($menu.length);
+            console.log($menuList.length);
+
+            // .css() 读(第一个元素)写所有元素当前元素的样式
+            // 获取当前jq对象中第一个DOM元素的指定css值
+            console.log($menuList.css('background-color')); // rgb(255,0,0)  
+            // 该方法也可以接受一个数组获取当前jQ对象第一个元素的多个css样式值  
+            console.log($menuList.css(['background-color', 'font-size'])); //{background-color: 'rgb(255, 0, 0)', font-size: '17px'}
+
+            // .css(styleKey,styleValue) 修改将当前jQ对象内部所有dom的一个样式
+            $menuList.css('background-color', '#efefef')
+            
+            // .css(styleKey,func) 接受一个函数,遍历当前jQuery对象所有dom获取dom的下标与当前样式值,返回更新后的样式值
+            $menuList.css('background-color', function (index, value) {
+                console.log(index, '下标');
+                console.log(value, '还没改变前当前样式的值')
+                // 返回值就是修改后的值
+                return index % 2 ? 'red':'green'
+            })
+
+            // .css(styleObject) 修改将当前jQ对象内部所有dom的多个样式
+            // $menuList.css({
+            //     'background-color': 'yellow',
+            //     color: 'red'
+            // })
+        }) 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--使用jQuery cdn三方库-->
+    <!--    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>-->
+    <!--也可以下载下来引用-->
+    <script src="../jquery.js"></script>
+</head>
+<body>
+<script>
+    // 当jQuery库被引入到项目中，全局对象就会添加 jQuery 和 $ 两个对象
+    console.log(jQuery === $);
+    // 打印jQuery 对象他就是个封装过自己自动实例化(new)初始化函数，返回一个jQuery实例对象
+    console.log(jQuery); // f (e,t){return new S.fn.init(e,t)}
+    console.log($);
+
+    // jQuery的入口函数 $(document).ready()
+    // ready方法接受一个函数，函数只有在页面文档对象模型DOM准备好，允许JavaScript代码执行时才会执行
+    // $(document).ready(function () {
+    //     var app = document.getElementById('app');
+    //     console.log(app)
+    // })
+    // 以上方法简写
+    $(function () {
+        var app = document.getElementById('app');
+        console.log(app)
+    })
+    // 下面的代码与上面代码功能类似 window.onload 将在整个页面(图像或iframes),而不仅仅时DOM就绪时运行
+    window.onload = function () {
+
+    }
+</script>
+
+<div id="app"></div>
+</body>
+</html>
