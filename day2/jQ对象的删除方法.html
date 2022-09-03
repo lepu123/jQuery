@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text">
+        <textarea></textarea>
+    </div>
+
+    <div class="demo">1</div>
+
+    <div class="demo">2</div>
+
+    <p class="p">
+        <input type="text">
+        23790210
+        <span>!</span>
+        <strong>!</strong>
+    </p>
+
+    <div class="demo">
+        <p>213</p>
+    </div>
+    <script>
+        $(function(){
+            // remove 将匹配的元素从dom中删除,该方法会移出删除元素的事件监听
+            // $('input').remove()
+            // remove 方法支持传入选择器过滤需要删除的元素集合
+            // 只删除class为demo的div元素
+            // $('div').remove('.demo')
+
+            // empty 清空元素集合内部的所有子节点
+            // $('.p').empty()
+
+        })
+    </script>
+</body>
+</html>
