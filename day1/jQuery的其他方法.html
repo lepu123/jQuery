@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+<ul>
+    <li>1</li>
+    <li>2</li>
+    <li class="list">3</li>
+    <li>4</li>
+    <li>5</li>
+    <li class="list">6</li>
+    <li>7</li>
+</ul>
+<script>
+    $(function () {
+        // jQuery 通过[index]获取的元素，是原生DOM，无法使用jq提供的方法
+        // $('li')[2].css('color', 'red') // Error 错误这样获取的元素是原生节点
+        // jq对象与原生对象的转换
+        // $('.box')[0] 推荐使用下标直接转换
+        // $('.box')get(0) ; 使用jq提供的get获取第index个原生DOM元素(不推荐)
+        // $('.box').get() ; 返回一个数组包含jQuery对象集合中所有原生DOM对象
+        // $(box) DOM集合转jQuery对象
+        $('li').eq(2).css('color', 'blue').text('我是第三个li元素')
+        // eq方法支持负值，表示倒数
+
+        // 转原生绑定事件
+        $('ul')[0].onclick = function (e) {
+            if (e.target.tagName === 'LI') {
+                console.log(e.target);
+                console.log($(e.target).index());
+                console.log($(e.target).index('.list'));
+            }
+        }
+
+        // .show()/.hide()
+        // $('li')
+
+    })
+</script>
+</body>
+</html>
