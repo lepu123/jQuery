@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <div class="box">
+        <p class="test">1</p>
+        <p class="test">2</p>
+        <p class="test">3</p>
+        <p class="test">4</p>
+    </div>
+    <script>
+        let $app = $('#app')
+        // 父元素在末尾添加子元素
+        $app.append($('<p>123</p>'))
+        $app.append(function (index, html) {
+            return $('<input>')
+        })
+
+        // 子元素添加到父元素的末尾
+        $('<h2>app结尾</h2>').appendTo($app)
+
+        // 父元素在开头添加子元素
+        $app.prepend($('<h1>111</h1>'))
+        $app.prepend('<h1>222</h1>')
+        $app.prepend(function (index, html) {
+            return $('<input type="checkbox">')
+        })
+
+        // 子元素添加到父元素的头部
+        $('<textarea>').css().prependTo($app)
+
+
+        let $boxTest = $('.box .test');
+
+        // 给匹配集合所有元素后面插入一个兄弟节点    
+        $boxTest.after('<input>')
+
+        $boxTest.after(function (index, textContent) {
+            console.log(textContent);
+            return $('<input>').val(textContent + index)
+        })
+
+        // 将元素作为兄弟节点插入到指定元素的前面
+        $('<input type="checkbox">').insertAfter($boxTest)
+
+
+        // 给匹配集合所有元素前面插入一个兄弟节点    
+        $boxTest.before('<h2>123</h2>')
+
+        $boxTest.before(function (index, textContent) {
+            console.log(textContent);
+            return $('<h2>').text(textContent + index)
+        })
+
+        // 将元素作为兄弟节点插入到指定元素的前面
+        $('<img src="./1.jpg">').insertBefore($boxTest)
+    </script>
+</body>
+
+</html>
