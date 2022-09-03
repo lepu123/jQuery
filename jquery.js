@@ -5756,7 +5756,7 @@ jQuery.Event = function( src, props ) {
 	this[ jQuery.expando ] = true;
 };
 
-// jQuery.Event is based on DOM3 Events as specified by the ECMAScript Language Binding
+// jQuery.Event is based on DOM3 Events as specified by the ECMAScript6 Language Binding
 // https://www.w3.org/TR/2003/WD-DOM-Level-3-Events-20030331/ecma-script-binding.html
 jQuery.Event.prototype = {
 	constructor: jQuery.Event,
@@ -9316,7 +9316,7 @@ jQuery.extend( {
 			text: "text/plain",
 			html: "text/html",
 			xml: "application/xml, text/xml",
-			json: "application/json, text/javascript"
+			json: "application/json, text/js"
 		},
 
 		contents: {
@@ -10138,7 +10138,7 @@ jQuery.ajaxPrefilter( function( s ) {
 // Install script dataType
 jQuery.ajaxSetup( {
 	accepts: {
-		script: "text/javascript, application/javascript, " +
+		script: "text/js, application/js, " +
 			"application/ecmascript, application/x-ecmascript"
 	},
 	contents: {
