@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../jquery.js"></script>
     <style>
         .menu-list {
             background-color: red;
@@ -31,8 +31,8 @@
     </ul>
     <script>
         $(function () {
-            var $menu = $('.menu')
-            var $menuList = $('.menu-list', $menu)
+            let $menu = $('.menu')
+            let $menuList = $('.menu-list', $menu)
 
             // 属性 length jQuery对象匹配到的DOM元素个数
             console.log($menu.length);
