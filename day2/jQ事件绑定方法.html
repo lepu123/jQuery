@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <button id="disable">disable click</button>
+        <button id="btn">click me</button>
+    </div>
+
+    <script>
+        // jQuery对象提供.on()方法,给元素绑定一个或多个事件的处理函数
+        // .on(events[,selector][,data],事件处理函数(e){})
+        // events 一个或多个空格分隔的事件类型名
+        // selector 一个选择器字符串,表示当前元素内符合选择器的元素才可以触发此事件(常用语事件的代理),默认值null代表所有元素都可出发
+        // data    一般是一个对象,向event.data添加额外的数据
+        // 事件处理函数(e){} 当事件触发时调用回调函数
+
+
+        $('.box').on('mousedown mouseup', '#btn', { data: '123' }, function (e) {
+
+            console.log('我被触发了', e.data, e);
+        })
+
+        let test = function() {
+            console.log('我被点击了');
+        }
+
+        $('.box').on('click',test)
+        $('.box').on('click',function() {
+            console.log('我也被点击了');
+        })
+
+        // jQuery对象提供.off()方法,移出一个事件的处理函数
+        // .off(events[,selector][,callback])
+        // events 一个或多个空格分隔的事件类型名
+        // selector 可选值想要解绑的事件方法上传递的 selector 值
+        // callback 可选值想要解绑事件对应的事件处理函数
+        // $('.box').off('click',test)
+        $('.box').off('click') // 删除所有click事件
+
+        // 注意.off解绑的on事件若包含多个参数时,只有与这些参数完全匹配的事件处理函数才会被移除。
+        // 但是如果,off方法只传入简单的事件名称,其他参数都不传递那么所有此类类型的事件（包括直接和委派）从元素上被移除。
+
+    </script>
+</body>
+
+</html>
