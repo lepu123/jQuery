@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+<button class="btn">开关</button>
+
+<script>
+    let $btn = $('.btn')
+    // 给原添加class名
+    // 为jQuery对象集合中每个匹配元素所要增加的一个或多个类名。
+    $btn.addClass('123')
+
+    // 该方法支持函数写法，参数一元素在当前jq集合的下标，参数二当前元素已有class名
+    $btn.addClass(function (index,currentClass) {
+        console.log(currentClass);
+        return 'btn-' + index
+    })
+
+    // 给jq元素删除class名
+    // 为jQuery对象集合中每个匹配的元素删除一个或多个类名
+    $btn.removeClass('123 test')
+    // 切换jq元素的的class名
+    $btn.on('click', () => {
+        $btn.toggleClass('open')
+    })
+
+    // $btn.toggleClass('open')
+
+</script>
+</body>
+</html>
