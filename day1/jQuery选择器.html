@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../jquery.js"></script>
 </head>
 
 <body>
@@ -25,19 +25,19 @@
             // jq还支持querySelect语法将css选择器传入jq方法中,jq自动访问到页面中对应的元素
             // 并将元素转化为jq实例对象
             // 注意: 以后开发所有通过jq获取的DOM元素变量名请使用$开头,与原生DOM做区分
-            var $app = $('#app')
-            var app = document.querySelector('#app')
+            let $app = $('#app')
+            let app = document.querySelector('#app')
 
-            var $app1 = $(app) // 原生DOM 可以通过 $(DOM) 方法将其转化为 jQuery对象
+            let $app1 = $(app) // 原生DOM 可以通过 $(DOM) 方法将其转化为 jQuery对象
             console.log($app1);
-            console.log($app == app); // false
-            console.log($app[0] == app); // true, $app[0] 通过下标可以将jq对象转化为原生对象
+            console.log($app === app); // false
+            console.log($app[0] === app); // true, $app[0] 通过下标可以将jq对象转化为原生对象
 
             // jQ方法可以接受第二个参数作为当前jQuery选择器的上下文环境,获取子元素的父元素
             // 参数二可以是 原生DOM 也可以去是jQuery DOM对象 也可以是选择器字符串
-            // var $ps = $('p',app)
-            // var $ps = $('p',$app)
-            var $ps = $('p','#app')
+            // let $ps = $('p',app)
+            // let $ps = $('p',$app)
+            let $ps = $('p','#app')
             // 
             console.log($ps);
             console.log($ps[0]); // 可以拿到第0个原生p元素
@@ -64,7 +64,7 @@
             :hidden： 匹配所有不可见元素
             :visible：匹配所有可见元素
 
-            它们的CSSdisplay值为none、它们是的构成元素type=“hidden”、祖先元素被隐藏，因此该元素未显示在页面上。
+            它们的CSS display值为none、它们是的构成元素type=“hidden”、祖先元素被隐藏，因此该元素未显示在页面上。
             带有visibility: hidden或的元素opacity: 0被认为是可见的，因为它们仍然占用布局中的空间。
             */
 
