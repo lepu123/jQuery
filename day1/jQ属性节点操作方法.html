@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="../jquery-3.6.0.min.js"></script>
+    <script src="../jquery.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <script>
         // attr 获取匹配的元素集合中的第一个元素的属性的值 或 设置每一个匹配元素的一个或多个属性。
         // 注意该方法不支持获取多重值
-        var $input = $('input')
+        let $input = $('input')
         console.log($input.attr('type')); // text
         // 赋值
         $input.attr('alt', 'hello')
@@ -31,19 +31,21 @@
             return 'name-' + index
         })
 
-        console.log($('[type=checkbox]').attr('checked'));
+
+        let $checkbox = $('[type=checkbox]')
+        console.log($checkbox.attr('checked'));
         // prop 方法使用与attr一致,用途不同
         // prop 方法专门用来修改获取动态属性如 checked, selected,focus, disabled
         // 可以给动态属性设置布尔值表示当前元素的状态
-        console.log($('[type=checkbox]').prop('checked')); // flase 没有勾选
+        console.log($checkbox.prop('checked')); // false 没有勾选
 
-        $('[type=checkbox]').prop('checked', true)
-        $('[type=checkbox]').prop({
+        $checkbox.prop('checked', true)
+        $checkbox.prop({
             checked: true,
             disabled: true
         })
 
-        $('[type=checkbox]').prop('checked', function (index, value) {
+        $checkbox.prop('checked', function (index, value) {
             return !value
         })
 
