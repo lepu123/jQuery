@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        在 jQuery 提供以下事件方法给jQuery绑定相关DOM事件
+        click、dblclick、mousedown、mouseup、mouseover、mouseout、mouseenter、mouseleave	
+        keypress、keydown、keyup	
+        submit、change、focus、blur		
+        scroll
+        hover	等价于 mouseenter、mouseleave 简写形式	
+        load、unload、resize
+     
+      jQuery 事件方法支持隐式迭代，事件自动循环绑定给jQuery集合中每个DOM元素
+      jQuery 事件方法支持链式调用，事件自动循环绑定给jQuery集合中每个DOM元素 
+
+      语法: jq.事件名([data,]callback)
+      jQuery的事件方法支持两个参数
+      参数一: 可选参数 数据类型Object,用于给事件处理函数传递额外的数据,存放在event.data中
+      参数二: 必传参数 事件处理函数,一般情况事件处理函数自动接受event事件对象作为参数
+
+      // 注意: jq事件方法的回调函数event事件对象并不是原生js的event对象,而是做过浏览器兼容处理封装过得event对象
+      // 在使用jq的event对象阻止冒泡或浏览器默认行为时无需考虑浏览器兼容问题,jq都帮你处理好了
+      // 在jq的事件回调函数中,this都是原生DOM对象   
+
+      注意: hover事件不是一个原生事件,他的语法是:
+      jq.hover(handelInFunc,handeOutFunc)  等价于
+
+      jq.mouseenter(handelInFunc).mouseleave(handeOutFunc)
+    -->
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        $(function () {
+            $('ul li').click({name: 2},function (e) {
+                console.log(e);
+                e.preventDefault()
+            }).addClass('menu-item').mousedown(function (e) {
+                console.log('mousedown');
+            }).hover(function () {
+                $(this).addClass('active')
+            }, function () {
+                $(this).removeClass('active')
+            })
+        })
+    </script>
+
+</body>
+
+</html>
