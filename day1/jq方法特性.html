@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        // 隐式迭代,对于原生 JS 来说，给某类元素设置样式\text等需要使用循环逐个设置
+        // 但是在jQ中并不需要考虑这点,jQ内部自己做了循环,这个就被称为隐式迭代
+        $(function() {
+            // 使用JavaScript时要对某个元素进行一系列操作，只能一次一次的操作
+            // 然而 jQuery 提供了链式操作方式，可以通过.语法对同一对象多次设置其属性或方法
+            $('li').text('123').css({
+                color: 'red',
+                backgroundColor: '#eee'
+            }).attr('title','some-title')
+            // 面试题,链式操作实现原理
+            // jQuery实现链式调用的原理是每个方法执行完成后都返回了 this 对象
+
+            // jQ的取值操作,因为会返回要获取的值,所以无法继续返回this对象.取值操作不支持链式调用
+            console.log($('li').text())
+
+        })
+
+
+    </script>
+</body>
+</html>
