@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid blue;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"> 123</div>
+    <script>
+        // 每个元素可以通过jQuery，包含一个(默认)或多个函数队列(queue)。
+        // 在大多数应用中，只有一个列队(默认队列名 fx)被使用。
+        // 队列允许一个元素来异步的访问一连串的动作，而不终止程序执行。
+        // $('.box').fadeTo(2000, 0.5).slideToggle(2000)
+        // 当这个语句被执行，这个元素开始立即做淡出到0.5，
+        // 而slideToggle动画放置在 fx 列队在，只有当淡出到0.5动画完成后才会被执行。
+        // 动画完成的callback函数在多元素联动时非常有用
+
+        // 之前动画方法都是用来做显示隐藏的
+        // jq还提供了一个animate方法,用来做元素多样式同时动画的缓动函数
+        // 语法一 .animate( styleObj [, duration ] [, easing ] [, complete ] )
+        // animate 放将元素当前的样式通过动画的效果过渡到指定的UI样式
+        // styleObj 接受一组key是CSS驼峰样式的名,value是css样式值的对象,dom元素就会按照styleObj动画的过渡
+        // duration 动画的总时长
+        // easing   动画速率曲线
+        // complete 动画完成后的回调函数
+        /*
+        $('.box').animate({
+            width: "70%",
+            opacity: 0.4,
+            fontSize: "3em",
+            borderWidth: "10px"
+        }, 1500);
+        */
+        // 语法二 .animate( styleObj [option] )
+        /*
+        $('.box').animate({
+            width: "70%",
+            opacity: 0.4,
+            fontSize: "3em",
+            borderWidth: "10px"
+        }, {
+            duration: 10000,
+            start: function() {
+                console.log('动画开始了');
+            },
+            easing: 'linear'
+        }).slideUp()
+        */
+        //  停止当前动画
+        //.stop([queue name 默认值是'fx'][,是否清除队列][,元素动画停止后是否以本次动画最后一镇展示])
+        // $('.box').stop(true,true)
+        // $('.box').stop('fx',true,true)
+
+        // 清除队列
+        // clearQueue(清除的队列名) 默认''
+        // $('.box').clearQueue()
+
+        // 延迟执行动画
+        // delay(duration[,queueName])  duration 延迟时间 queueName动画队列名默认值 'fx'
+        $('.box').animate({
+            width: "70%",
+            opacity: 0.4,
+            fontSize: "3em",
+            borderWidth: "10px"
+        }, {
+            duration: 2000,
+            start: function () {
+                console.log('动画开始了');
+            },
+            easing: 'linear'
+        }).slideUp().delay(1000).slideDown()
+
+
+
+    </script>
+</body>
+
+</html>
