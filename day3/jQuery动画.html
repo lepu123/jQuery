@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<script>
+    // show([duration][,completedCallBack])
+    // hide([duration][,easing][,completedCallBack])
+    // duration 动画持续事件 毫秒 支持特殊关键字 'fast'\'slow'
+    // completedCallBack 动画执行完毕的回调函数
+    // $('.box').hide(3000, function () {
+    //     // 动画结束了
+    //     console.log('动画结束了')
+    //     $('.box').show('slow')
+    // })
+    /*
+    $('.box').hide({
+        duration: 1000,
+        start: function () {
+            console.log('动画开始');
+        },
+        easing: 'linear',
+        complete: function () {
+            console.log('动画完成')
+        }
+    })
+    */
+    // 滑动方法
+    // 卷起方法
+    // slideDown(显示) slideUp(隐藏) slideToggle(显示/隐藏) 语法与上面的相同
+    // $('.box').slideUp(1000, function () {
+    //     $('.box').slideDown(2000)
+    // })
+
+    // 淡入淡出显示隐藏方法
+    // fadeIn() fadeOut() fadeToggle() 语法与上面的相同
+    $('.box').fadeToggle(1000, function (){
+        console.log('fadeToggle淡入')
+        $('.box').fadeToggle(2000, function () {
+            console.log('fadeToggle淡出')
+        })
+    })
+
+    // fadeTo(duration,opacity,callback) 透明度变化动画
+    // $('.box').fadeTo(2000, 0.5, function () {
+    //     console.log('动画完成')
+    // })
+</script>
+</body>
+</html>
