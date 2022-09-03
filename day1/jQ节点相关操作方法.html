@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+
+    <input type="text">
+    <textarea></textarea>
+    <script>
+        // html()获取jq集合中第一个元素的innerHTML值,也可以设置每个元素的innerHTML值
+        let $li = $('ul li')
+        // 取值
+        console.log($li.html())
+        // 赋值
+        // $li.html('<p>123</p>')
+        // 带函数的赋值
+        $li.html(function (index, oldHtml) {
+            return oldHtml + '-' + index + '!'
+        })
+
+        // text方法获取jq集合中所有元素的文本内容textContent值,也可以设置每个元素的textContent值
+        console.log($li.text()); 
+
+        $li.text('<p>123</p>')
+
+        $li.text(function (index, oldText) {
+            return oldText + '-' + index + '!'
+        })
+
+        // val 获取匹配的元素集合中第一个元素的当前值或设置匹配的元素集合中每个元素的值。
+        console.log($('input').val()); 
+
+        $('input').val('123')
+
+        $('input').val(function(index,oldValue){
+            return index + '----' + oldValue
+        })
+
+        $('textarea').val(function(index,oldValue){
+            return index + '哈哈哈' 
+        })
+    </script>
+</body>
+
+</html>
